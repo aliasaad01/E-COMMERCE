@@ -1,0 +1,24 @@
+/* eslint-disable jsx-a11y/alt-text */
+import "./App.css";
+import { ProductsContext } from "./contexts/ProductsContext";
+import { products } from "./assets/productsContent";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import CartPage from "./pages/CartPage";
+import Navbar from "./components/Navbar";
+
+function App() {
+  return (
+    <ProductsContext.Provider value={products}>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </ProductsContext.Provider>
+  );
+}
+
+export default App;
