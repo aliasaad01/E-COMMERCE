@@ -10,21 +10,16 @@ const cartSlice = createSlice({
   reducers: {
     // Add To Cart
     addToCart: (state, action) => {
-      // let existingItem = "";
+      const existingItem = state.items.find(
+        (item) => item.id === action.payload.id
+      );
 
-      // if (state.items || []) {
-      if (state.items?.length >= 0) {
-        const existingItem = state.items.find(
-          (item) => item.id === action.payload.id
-        );
-
-        if (existingItem) {
-          existingItem.quantity += 1;
-        } else {
-          (state.items || []).push({ ...action.payload, quantity: 1 });
-        }
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        // state.items.push({ ...action.payload, quantity: 1 });
+        state.items = [...state.items, { ...action.payload, quantity: 1 }];
       }
-      // }
 
       // Add To Local Storage
       localStorage.setItem("cartItems", JSON.stringify(state.items));

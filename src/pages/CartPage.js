@@ -43,7 +43,7 @@ export default function CartPage() {
     );
   }
 
-  const cartItemsList = cartItems.map((item) => (
+  const cartItemsList = cartItems?.map((item) => (
     <div key={item.id}>
       <div className="flex items-center gap-4 py-4 border-b">
         <Link to={`/product/${item.id}`}>
