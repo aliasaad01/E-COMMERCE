@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const searchTerm = useSelector((state) => state.product.searchTerm);
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items || []);
 
   const isLocal = JSON.parse(localStorage.getItem("cartItems"));
 

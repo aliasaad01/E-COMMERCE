@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 export default function CartPage() {
   const dispatch = useDispatch();
-  let cartItems = useSelector((state) => state.cart.items);
+  let cartItems = useSelector((state) => state.cart.items || []);
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
