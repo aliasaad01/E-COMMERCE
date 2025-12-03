@@ -11,16 +11,16 @@ const cartSlice = createSlice({
     // Add To Cart
     addToCart: (state, action) => {
       let existingItem = "";
-      if (state.items?.length > 0) {
+      if (state.items?.length >= 0) {
         existingItem = state.items.find(
           (item) => item.id === action.payload.id
         );
-      }
 
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          state.items.push({ ...action.payload, quantity: 1 });
+        }
       }
 
       // Add To Local Storage
