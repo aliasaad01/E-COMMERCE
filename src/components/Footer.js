@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
