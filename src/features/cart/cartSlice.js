@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// let savedItems = [];
-// try {
-//   savedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-// } catch (e) {
-//   console.error("Failed to load cartItems from locatStorage", e);
-// }
+let savedItems = [];
+try {
+  savedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+} catch (e) {
+  console.error("Failed to load cartItems from locatStorage", e);
+}
 
 const initialState = {
-  items: JSON.parse(localStorage.getItem("cartItems")) || [],
+  items: savedItems,
 };
 
 const cartSlice = createSlice({
@@ -25,6 +25,7 @@ const cartSlice = createSlice({
         existingItem.quantity += 1;
       } else {
         // state.items.push({ ...action.payload, quantity: 1 });
+        console.log("add to cart payload", { ...action.payload, quantity: 1 });
         state.items = [...state.items, { ...action.payload, quantity: 1 }];
       }
     },
