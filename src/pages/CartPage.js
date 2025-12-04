@@ -1,12 +1,7 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  removeFromCart,
-  storedItemsFromLocal,
-  updateQuantity,
-} from "../features/cart/cartSlice";
-import { useEffect } from "react";
+import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 
 export default function CartPage() {
   const dispatch = useDispatch();

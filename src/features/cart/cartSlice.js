@@ -49,7 +49,6 @@ const cartSlice = createSlice({
 
     // Stored Items From Local Storage
     storedItemsFromLocal: (state, action) => {
-      // state.items = action.payload;
       state.items = Array.isArray(action.payload) ? action.payload : [];
     },
 
