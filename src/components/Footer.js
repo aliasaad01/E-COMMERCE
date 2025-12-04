@@ -92,7 +92,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-semibold my-4">Pages</h2>
+              <h2 className="text-2xl font-semibold my-4">Address</h2>
               <p>
                 70 Washington Square South, New York, NY 10012, United States
               </p>
