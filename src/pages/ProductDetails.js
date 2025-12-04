@@ -57,7 +57,10 @@ export default function ProductDetails() {
             <Link>
               <button
                 className="md:w-auto bg-zinc-200 px-8 py-3 rounded-md flex justify-center items-center gap-2 hover:bg-zinc-300"
-                onClick={() => dispatch(addToCart(product))}
+                onClick={() => {
+                  console.log(product);
+                  return dispatch(addToCart(product));
+                }}
               >
                 <ShoppingCart /> Add To Cart
               </button>

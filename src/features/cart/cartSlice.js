@@ -24,8 +24,11 @@ const cartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        // state.items.push({ ...action.payload, quantity: 1 });
         console.log("add to cart payload", { ...action.payload, quantity: 1 });
+        if (!Array.isArray(state.items)) {
+          state.items = [];
+        }
+        console.log(state.items);
         state.items = [...state.items, { ...action.payload, quantity: 1 }];
       }
     },
@@ -46,7 +49,8 @@ const cartSlice = createSlice({
 
     // Stored Items From Local Storage
     storedItemsFromLocal: (state, action) => {
-      state.items = action.payload;
+      // state.items = action.payload;
+      state.items = Array.isArray(action.payload) ? action.payload : [];
     },
 
     // Show Items Count
