@@ -74,7 +74,10 @@ export default function CartPage() {
               className="p-1 rounded-full hover:bg-slate-100"
               onClick={() =>
                 dispatch(
-                  updateQuantity({ id: item.id, quantity: item.quantity + 1 })
+                  updateQuantity({
+                    id: item.id,
+                    quantity: item.quantity + 1,
+                  })
                 )
               }
             >

@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+let savedItems = [];
+try {
+  savedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+} catch (e) {
+  console.error("Failed to load cartItems from locatStorage", e);
+}
+
 const initialState = {
-  items: [],
+  items: savedItems,
 };
 
 const cartSlice = createSlice({
@@ -33,6 +40,7 @@ const cartSlice = createSlice({
       if (item) {
         item.quantity = action.payload.quantity;
       }
+      console.log(item);
     },
 
     // Stored Items From Local Storage

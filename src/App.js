@@ -16,17 +16,21 @@ function App() {
   const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (
+      typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("cartItems"))
+    ) {
       const storedItems = JSON.parse(localStorage.getItem("cartItems"));
 
       dispatch(storedItemsFromLocal(storedItems));
     }
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
   return (
     <ProductsContext.Provider value={products}>
       <Navbar />
