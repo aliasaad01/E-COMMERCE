@@ -22,7 +22,7 @@ const cartSlice = createSlice({
       }
 
       // Add To Local Storage
-      localStorage.setItem("cartItems", JSON.stringify(state.items));
+      // localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
 
     // Remove From Cart
@@ -30,13 +30,13 @@ const cartSlice = createSlice({
       state.items = state.items.filter((item) => item.id !== action.payload.id);
 
       //Remove From Local Storage
-      const previousCart = JSON.parse(localStorage.getItem("cartItems"));
+      // const previousCart = JSON.parse(localStorage.getItem("cartItems"));
 
-      const updateCart = previousCart.filter((item) => {
-        return action.payload.id !== item.id;
-      });
+      // const updateCart = previousCart.filter((item) => {
+      //   return action.payload.id !== item.id;
+      // });
 
-      localStorage.setItem("cartItems", JSON.stringify(updateCart));
+      // localStorage.setItem("cartItems", JSON.stringify(updateCart));
     },
 
     // Update In Cart
@@ -47,15 +47,15 @@ const cartSlice = createSlice({
       }
 
       // Update Local Stogare
-      const previousCart = JSON.parse(localStorage.getItem("cartItems"));
+      // const previousCart = JSON.parse(localStorage.getItem("cartItems"));
 
-      const updateCart = previousCart.map((item) => {
-        return item.id === action.payload.id
-          ? { ...item, quantity: action.payload.quantity }
-          : item;
-      });
+      // const updateCart = previousCart.map((item) => {
+      //   return item.id === action.payload.id
+      //     ? { ...item, quantity: action.payload.quantity }
+      //     : item;
+      // });
 
-      localStorage.setItem("cartItems", JSON.stringify(updateCart));
+      // localStorage.setItem("cartItems", JSON.stringify(updateCart));
     },
 
     // Stored Items From Local Storage

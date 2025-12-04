@@ -16,13 +16,6 @@ export default function CartPage() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  useEffect(() => {
-    if (localStorage.getItem("cartItems")) {
-      const storedItems = JSON.parse(localStorage.getItem("cartItems"));
-
-      dispatch(storedItemsFromLocal(storedItems));
-    }
-  }, []);
 
   if (cartItems.length === 0) {
     return (
